@@ -4,14 +4,14 @@ import './index.css';
 
 function Home() {
   return (
-    <div className='text-center p-10 bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center relative'>
+    <div>
       <h1 className='text-4xl font-bold mb-4 animate-pulse'>
         Bienvenido al Proyecto
       </h1>
       <p className='text-lg mb-6'>Gestiona tus datos de manera sencilla.</p>
       <Link
         to='/items'
-        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300'
+        className='hover:bg-[#646cff] text-white font-bold py-2 px-4 rounded transition duration-300'
       >
         Ir a Items
       </Link>
@@ -45,8 +45,10 @@ function Items() {
   };
 
   return (
-    <div className='p-10 bg-gray-100 min-h-screen flex flex-col items-center relative'>
-      <h2 className='text-3xl font-semibold mb-4'>Gestión de Ítems</h2>
+    <div>
+      <h2 className='text-4xl font-semibold animate-pulse mb-8'>
+        Gestión de Ítems
+      </h2>
       <div className='flex space-x-2 mb-4'>
         <input
           className='border p-2 rounded-md shadow-md focus:ring focus:ring-blue-300'
@@ -55,21 +57,21 @@ function Items() {
           onChange={(e) => setInput(e.target.value)}
         />
         <button
-          className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300'
+          className='text-white font-bold py-2 px-4 rounded transition duration-300'
           onClick={addItem}
         >
           Agregar
         </button>
       </div>
-      <ul className='w-1/2 bg-white shadow-lg rounded-lg divide-y divide-gray-300 space-y-4'>
+      <ul className='rounded-md divide-y p-3'>
         {items.map((item, index) => (
           <li
             key={index}
-            className='flex justify-between p-6 hover:bg-gray-200 shadow-md rounded-lg'
+            className='flex items-center justify-between p-3 bg-gray-900 text-white rounded-md shadow-sm'
           >
-            {item}
+            <span className='truncate'>{item}</span>
             <button
-              className='text-red-500 hover:text-red-700 font-bold'
+              className='text-red-400 hover:text-red-600 bg-gray-700 hover:bg-gray-600 p-1 rounded-md border border-gray-500 transition-all duration-200'
               onClick={() => deleteItem(index)}
             >
               ✖
@@ -78,7 +80,7 @@ function Items() {
         ))}
       </ul>
 
-      <Link to='/' className='mt-6 text-blue-500 hover:underline'>
+      <Link to='/' className='mt-6 text-blue-500 hover:underline m-6'>
         Volver a Inicio
       </Link>
       <div className='absolute bottom-0 left-0 w-full h-1/3 error-bg'></div>
